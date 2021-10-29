@@ -13,7 +13,7 @@ class BottomNav extends StatelessWidget {
     return Container(
       color: Colors.red,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           _NavItem(
             index: 0,
@@ -72,7 +72,10 @@ class _NavItem extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            Text(label),
+            Text(
+              label,
+              style: const TextStyle(fontSize: 11),
+            ),
           ],
         ),
       ),
