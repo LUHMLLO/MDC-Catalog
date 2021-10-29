@@ -17,6 +17,6 @@ class MyApp extends StatelessWidget {
         darkTheme: AppTheme.dark(),
         themeMode: ThemeMode.light,
         title: 'MDC Catalog',
-        home: const ScreensScaffold());
+        home: ScreensScaffold());
   }
 }

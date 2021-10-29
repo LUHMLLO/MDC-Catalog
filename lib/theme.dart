@@ -11,7 +11,6 @@ abstract class AppTheme {
   static ThemeData light() => ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
         brightness: Brightness.light,
-        accentColor: AppColors.accent,
         textTheme: GoogleFonts.mulishTextTheme().apply(bodyColor: AppColors.dark),
         backgroundColor: AppColors.light,
         scaffoldBackgroundColor: AppColors.light,
@@ -24,7 +23,6 @@ abstract class AppTheme {
   static ThemeData dark() => ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
         brightness: Brightness.dark,
-        accentColor: AppColors.accent,
         textTheme: GoogleFonts.mulishTextTheme().apply(bodyColor: AppColors.light),
         backgroundColor: AppColors.dark,
         scaffoldBackgroundColor: AppColors.dark,

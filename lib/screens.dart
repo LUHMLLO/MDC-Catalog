@@ -6,33 +6,31 @@ import 'package:mdc_catalog/src/views/favorites_view.dart';
 import 'package:mdc_catalog/src/views/folders_view.dart';
 import 'package:mdc_catalog/src/views/settings_view.dart';
 
-class ScreensScaffold extends StatefulWidget {
-  const ScreensScaffold({Key? key}) : super(key: key);
+class ScreensScaffold extends StatelessWidget {
+  ScreensScaffold({Key? key}) : super(key: key);
 
-  @override
-  State<ScreensScaffold> createState() => _ScreensScaffoldState();
-}
+  final ValueNotifier<int> pageIndex = ValueNotifier(0);
 
-class _ScreensScaffoldState extends State<ScreensScaffold> {
   final pages = const [
     FavoritesView(),
     FoldersView(),
     SettingsView(),
   ];
 
-  final index = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: pages[index],
+        child: ValueListenableBuilder(
+            valueListenable: pageIndex,
+            builder: (BuildContext context, int value, _) {
+              return pages[value];
+            }),
       ),
       bottomNavigationBar: BottomNav(
         onItemSelected: (index) {
-          setState(() {
-            index = index;
-          });
+          pageIndex.value = index;
+          print(index);
         },
       ),
     );
