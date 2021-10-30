@@ -30,7 +30,6 @@ class ScreensScaffold extends StatelessWidget {
       bottomNavigationBar: BottomNav(
         onItemSelected: (index) {
           pageIndex.value = index;
-          print(index);
         },
       ),
     );

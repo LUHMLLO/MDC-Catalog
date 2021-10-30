@@ -11,7 +11,18 @@ class BottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
+      color: Colors.white,
+      decoration: BoxDecoration(
+        color: Colors.teal,
+        borderRadius: BorderRadius.circular(0),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.red,
+            blurRadius: 4,
+            offset: Offset(0, 0), // Shadow position
+          ),
+        ],
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -61,22 +72,29 @@ class _NavItem extends StatelessWidget {
         onTap(index);
       },
       child: SizedBox(
-        height: 70,
-        child: Column(
-          children: [
-            Icon(
-              icon,
-              size: 24,
-              color: Colors.black,
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Text(
-              label,
-              style: const TextStyle(fontSize: 11),
-            ),
-          ],
+        width: 100,
+        height: 72,
+        //padding: const EdgeInsets.all(24.0),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                icon,
+                size: 24,
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Text(
+                label.toUpperCase(),
+                style: const TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
