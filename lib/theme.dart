@@ -12,7 +12,7 @@ abstract class AppTheme {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         brightness: Brightness.light,
         textTheme: GoogleFonts.mulishTextTheme().apply(bodyColor: AppColors.dark),
-        backgroundColor: AppColors.light,
+        backgroundColor: AppColors.accent,
         scaffoldBackgroundColor: AppColors.light,
         primaryTextTheme: const TextTheme(
           headline6: TextStyle(color: AppColors.dark),
@@ -24,7 +24,7 @@ abstract class AppTheme {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         brightness: Brightness.dark,
         textTheme: GoogleFonts.mulishTextTheme().apply(bodyColor: AppColors.light),
-        backgroundColor: AppColors.dark,
+        backgroundColor: AppColors.accent,
         scaffoldBackgroundColor: AppColors.dark,
         cardColor: AppColors.light,
         primaryTextTheme: const TextTheme(

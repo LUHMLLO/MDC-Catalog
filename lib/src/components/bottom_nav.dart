@@ -11,18 +11,7 @@ class BottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
-      decoration: BoxDecoration(
-        color: Colors.teal,
-        borderRadius: BorderRadius.circular(0),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.red,
-            blurRadius: 4,
-            offset: Offset(0, 0), // Shadow position
-          ),
-        ],
-      ),
+      color: Colors.grey[200],
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
