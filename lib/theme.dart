@@ -3,15 +3,14 @@ import 'package:flutter/material.dart';
 abstract class AppColors {
   static const light = Color(0xFFffffff);
   static const dark = Color(0xFF454545);
-  static const accent = Color(0xFFf36e6e);
 }
 
 abstract class AppTheme {
   static ThemeData light() => ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
         brightness: Brightness.light,
-        backgroundColor: AppColors.accent,
-        scaffoldBackgroundColor: AppColors.light,
+        backgroundColor: Colors.red[400],
+        scaffoldBackgroundColor: Colors.red[400],
         primaryTextTheme: const TextTheme(
           headline6: TextStyle(color: AppColors.dark),
         ),
@@ -21,8 +20,8 @@ abstract class AppTheme {
   static ThemeData dark() => ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
         brightness: Brightness.dark,
-        backgroundColor: AppColors.accent,
-        scaffoldBackgroundColor: AppColors.dark,
+        backgroundColor: Colors.red[400],
+        scaffoldBackgroundColor: Colors.red[400],
         cardColor: AppColors.light,
         primaryTextTheme: const TextTheme(
           headline6: TextStyle(color: AppColors.light),

@@ -38,11 +38,23 @@ class ScreensScaffold extends StatelessWidget {
             }),
       ),
       body: SafeArea(
-        child: ValueListenableBuilder(
-            valueListenable: pageIndex,
-            builder: (BuildContext context, int value, _) {
-              return pages[value];
-            }),
+        child: Container(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(32),
+              topRight: Radius.circular(32),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: ValueListenableBuilder(
+                valueListenable: pageIndex,
+                builder: (BuildContext context, int value, _) {
+                  return pages[value];
+                }),
+          ),
+        ),
       ),
       bottomNavigationBar: BottomNav(
         onItemSelected: _onNavigationItemSelected,
