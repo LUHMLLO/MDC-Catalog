@@ -10,6 +10,7 @@ class ScreensScaffold extends StatelessWidget {
   ScreensScaffold({Key? key}) : super(key: key);
 
   final ValueNotifier<int> pageIndex = ValueNotifier(0);
+  final ValueNotifier<String> title = ValueNotifier('Favorites');
 
   final pages = const [
     FavoritesView(),
@@ -17,9 +18,25 @@ class ScreensScaffold extends StatelessWidget {
     SettingsView(),
   ];
 
+  final pageTitles = const [
+    'Favorites',
+    'Folders',
+    'Settings',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.red[400],
+        elevation: 0,
+        //centerTitle: true,
+        title: ValueListenableBuilder(
+            valueListenable: title,
+            builder: (BuildContext context, String value, _) {
+              return Text(value);
+            }),
+      ),
       body: SafeArea(
         child: ValueListenableBuilder(
             valueListenable: pageIndex,
@@ -28,10 +45,13 @@ class ScreensScaffold extends StatelessWidget {
             }),
       ),
       bottomNavigationBar: BottomNav(
-        onItemSelected: (index) {
-          pageIndex.value = index;
-        },
+        onItemSelected: _onNavigationItemSelected,
       ),
     );
+  }
+
+  void _onNavigationItemSelected(index) {
+    title.value = pageTitles[index];
+    pageIndex.value = index;
   }
 }

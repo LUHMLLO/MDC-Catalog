@@ -18,13 +18,13 @@ class BottomNav extends StatelessWidget {
           _NavItem(
             index: 0,
             icon: Icons.favorite,
-            label: 'favorite',
+            label: 'favorites',
             onTap: onItemSelected,
           ),
           _NavItem(
             index: 1,
             icon: Icons.folder,
-            label: 'folder',
+            label: 'folders',
             onTap: onItemSelected,
           ),
           _NavItem(
@@ -61,7 +61,7 @@ class _NavItem extends StatelessWidget {
         onTap(index);
       },
       child: SizedBox(
-        width: 100,
+        width: 116,
         height: 72,
         //padding: const EdgeInsets.all(24.0),
         child: Center(
