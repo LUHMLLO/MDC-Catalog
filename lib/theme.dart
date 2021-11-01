@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppColors {
   static const light = Color(0xFFffffff);
@@ -11,7 +10,6 @@ abstract class AppTheme {
   static ThemeData light() => ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
         brightness: Brightness.light,
-        textTheme: GoogleFonts.mulishTextTheme().apply(bodyColor: AppColors.dark),
         backgroundColor: AppColors.accent,
         scaffoldBackgroundColor: AppColors.light,
         primaryTextTheme: const TextTheme(
@@ -23,7 +21,6 @@ abstract class AppTheme {
   static ThemeData dark() => ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
         brightness: Brightness.dark,
-        textTheme: GoogleFonts.mulishTextTheme().apply(bodyColor: AppColors.light),
         backgroundColor: AppColors.accent,
         scaffoldBackgroundColor: AppColors.dark,
         cardColor: AppColors.light,
