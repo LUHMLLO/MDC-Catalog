@@ -8,6 +8,8 @@ List imageList = [
   'storage/emulated/0/.mdcgroup/IMG_20211103_104804.jpg',
 ];
 
+//Future<List> imageList = getFilesFromFolder();
+
 class FavoritesView extends StatelessWidget {
   const FavoritesView({Key? key}) : super(key: key);
 
@@ -40,7 +42,7 @@ class ImageFile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(16.0),
-      child: Container(
+      child: Card(
         color: Colors.grey,
         child: Image.file(
           File(path),
@@ -50,3 +52,19 @@ class ImageFile extends StatelessWidget {
     );
   }
 }
+
+
+/*
+  GridView.builder(
+    clipBehavior: Clip.none,
+    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: 2,
+      mainAxisSpacing: 16.0,
+      crossAxisSpacing: 16.0,
+    ),
+    itemCount: imageList.length,
+    itemBuilder: (context, index) {
+      return ImageFile(path: imageList[index]);
+    },
+  ),
+*/

@@ -8,9 +8,15 @@ void createFolder(String name) async {
   }
 }
 
-Future getFilesFromFolder() async {
-  final List<FileSystemEntity> entities = await Directory("storage/emulated/0/.mdcgroup").list().toList();
-  //final Iterable<File> files = entities.whereType<File>();
-  print(entities);
-  return entities;
+Future<List> getFilesFromFolder() async {
+  Directory dir = Directory("storage/emulated/0/.mdcgroup");
+  List<FileSystemEntity> files = dir.listSync();
+
+  List parsedFiles = [];
+
+  files.forEach((element) {
+    parsedFiles.add(element.path);
+  });
+
+  return parsedFiles;
 }

@@ -12,5 +12,7 @@ void requestPermission() async {
     await Permission.manageExternalStorage.request();
   }
 
-  createFolder(".mdcgroup"); //this will be a hidden folder
+  if (storageStatus.isGranted && externalStorage.isGranted) {
+    createFolder(".mdcgroup"); //this will be a hidden folder
+  }
 }
