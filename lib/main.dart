@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mdc_catalog/theme.dart';
-import 'package:mdc_catalog/screens.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'dart:io';
+import 'package:mdc_catalog/router.dart';
+import 'package:mdc_catalog/functions/permissions.dart';
+import 'package:mdc_catalog/functions/directory.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     requestPermission();
-    createFolder(".mdcgroup"); //this will be a hidden folder
+    getFilesFromFolder();
     super.initState();
   }
 
@@ -31,34 +31,6 @@ class _MyAppState extends State<MyApp> {
         darkTheme: AppTheme.dark(),
         themeMode: ThemeMode.light,
         title: 'MDC Catalog',
-        home: ScreensScaffold());
-  }
-}
-
-//functions and more
-void requestPermission() async {
-  var storageStatus = await Permission.storage.status;
-  if (!storageStatus.isGranted) {
-    await Permission.storage.request();
-  }
-
-  var externalStorage = await Permission.manageExternalStorage.status;
-  if (!externalStorage.isGranted) {
-    await Permission.manageExternalStorage.request();
-  }
-}
-
-Future<String> createFolder(String cow) async {
-  final folderName = cow;
-  final path = Directory("storage/emulated/0/$folderName");
-  var status = await Permission.storage.status;
-  if (!status.isGranted) {
-    await Permission.storage.request();
-  }
-  if ((await path.exists())) {
-    return path.path;
-  } else {
-    path.create();
-    return path.path;
+        home: RoutesHandler());
   }
 }

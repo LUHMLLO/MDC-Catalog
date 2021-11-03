@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 
-import 'package:mdc_catalog/src/components/bottom_nav.dart';
+import 'package:mdc_catalog/src/widgets/bottom_nav.dart';
 
-import 'package:mdc_catalog/src/views/favorites_view.dart';
-import 'package:mdc_catalog/src/views/folders_view.dart';
-import 'package:mdc_catalog/src/views/settings_view.dart';
+import 'package:mdc_catalog/src/pages/favorites_view.dart';
+import 'package:mdc_catalog/src/pages/folders_view.dart';
+import 'package:mdc_catalog/src/pages/settings_view.dart';
 
-class ScreensScaffold extends StatelessWidget {
-  ScreensScaffold({Key? key}) : super(key: key);
+class RoutesHandler extends StatelessWidget {
+  RoutesHandler({Key? key}) : super(key: key);
 
   final ValueNotifier<int> pageIndex = ValueNotifier(0);
   final ValueNotifier<String> title = ValueNotifier('Favorites');
 
-  final pages = const [
+  final routes = const [
     FavoritesView(),
     FoldersView(),
     SettingsView(),
   ];
 
-  final pageTitles = const [
+  final routesNames = const [
     'Favorites',
     'Folders',
     'Settings',
@@ -51,7 +51,7 @@ class ScreensScaffold extends StatelessWidget {
             child: ValueListenableBuilder(
                 valueListenable: pageIndex,
                 builder: (BuildContext context, int value, _) {
-                  return pages[value];
+                  return routes[value];
                 }),
           ),
         ),
@@ -63,7 +63,7 @@ class ScreensScaffold extends StatelessWidget {
   }
 
   void _onNavigationItemSelected(index) {
-    title.value = pageTitles[index];
+    title.value = routesNames[index];
     pageIndex.value = index;
   }
 }
